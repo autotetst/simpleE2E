@@ -12,7 +12,7 @@ def get_prefics():
 
 def get_long_name(count=255):
     Name = "eiaqtzuejxpyyhzvsttqjvcxangombokndqwlfcghvkxydkmzkhixfrnbyluvvhenxhnwrjntimpulkcanjqdtzxbavlfeioetqcjumvaktyaumudrgalweswrdinmqvknxbhkhjftkcgeausaljlvatyvionsxrcyzyzrvuhiswoosfnpsfrwypkjfplullyikvrntdnrldvausgsicovdwawrpnessxjhatymswoqrngfczekqkbgmzhsrhuczkekkanodzglgkkpbmlnorpbdipcceuacivqhfwsijlhpmupgpdjcpgsaklahaouvuawehjbaypgqksqzmbnt"
-    return Name[0:count - 1]
+    return Name[0:count]
 
 
 def prepare_text(text):
