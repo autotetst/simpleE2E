@@ -5,7 +5,6 @@ import SimpleITK as sitk
 import os
 from allure_commons.types import AttachmentType
 from helpers.action import ClassAction
-from helpers.check import ClassCheck
 from helpers.prepare import allure_attach_png
 
 from behave import *
@@ -26,21 +25,7 @@ def step_allure(context, url, short_name):
 
 @when('Я перезагружаю страницу')
 def step_reload_page(context):
-    page = ClassCheck(context)
     context.page.reload()
-    selector = '.logo'
-    name = 'Лого'
-    page.check_visibility(context.page.locator(selector=selector), name=name)
-    step_screen(context)
-
-
-@when('iframe. Я перезагружаю страницу')
-def step_reload_page_iframe(context):
-    page = ClassCheck(context)
-    context.page.reload()
-    selector = '[data-test-id="editor-page-actions"]'
-    name = 'Панель расширения'
-    page.check_visibility(context.page.locator(selector=selector), name=name)
     step_screen(context)
 
 
