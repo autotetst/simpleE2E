@@ -121,7 +121,7 @@ def step_click_coordinate_with_move(context, x1, y1, x2, y2):
 
 
 @when('Я ввожу большой текст в "{name}"/"{selector}"')
-def step_fill_input_dialog(context, text, selector, name):
+def step_fill_input_dialog_big(context, selector, name):
     text = prepare_text(context.text)
     page = ClassAction(context)
     page.fill(context.page.locator(selector=selector), text=text, name=name)
