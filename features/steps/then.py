@@ -98,3 +98,15 @@ def step_check_attr(context, selector, name, value):
 def step_hidden_element_to_selector(context, selector, name):
     page = ClassCheck(context)
     page.check_hidden(context.page.locator(selector), name=name)
+
+
+@then('Текущий URL ~ "{url}"')
+def step_check_current_url(context, url):
+    page = ClassCheck(context)
+    page.check_current_url(context.host + url)
+
+
+@then('Текущий URL = "{url}"')
+def step_check_current_url_full(context, url):
+    page = ClassCheck(context)
+    page.check_current_url(url)
