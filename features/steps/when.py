@@ -6,11 +6,18 @@ from helpers.prepare import prepare_text
 use_step_matcher("cfparse")
 
 
-@when('Я перехожу по ссылке "{url}"')
-def step_visit_link(context, url):
+@when('Я перехожу по ссылке = "{url}"')
+def step_visit_link_full(context, url):
     context.page = context.playwright_context.new_page()
     page = ClassAction(context)
     page.visit(url)
+
+
+@when('Я перехожу по ссылке ~ "{url}"')
+def step_visit_link(context, url):
+    context.page = context.playwright_context.new_page()
+    page = ClassAction(context)
+    page.visit(context.host + url)
 
 
 @when('Я нажимаю "{name}"/"{selector}"')
@@ -95,7 +102,7 @@ def step_click_button(context, selector1, selector2, name):
     step_screen(context)
 
 
-@when('Клик по координатам ("{x}", "{y}")')
+@when('Клик по координатам "{x}", "{y}"')
 def step_click_coordinate(context, x, y):
     page = ClassAction(context)
     page_context = context.page
@@ -103,7 +110,7 @@ def step_click_coordinate(context, x, y):
     step_screen(context)
 
 
-@when('Кликнуть и тянуть ("{x1}", "{y1}") - ("{x2}", "{y2}")')
+@when('Кликнуть и тянуть "{x1}", "{y1}" - "{x2}", "{y2}"')
 def step_click_coordinate_with_move(context, x1, y1, x2, y2):
     page = ClassAction(context)
     page_context = context.page

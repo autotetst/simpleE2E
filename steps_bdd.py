@@ -4,7 +4,7 @@ import re
 import argparse
 
 parser = argparse.ArgumentParser(description='Simple parser custom argument')
-parser.add_argument('--output', type=str, default='Available_steps')
+parser.add_argument('--output', type=str, default='available_steps')
 args = parser.parse_args()
 output = args.output
 
@@ -43,7 +43,7 @@ def getData():
 
 def generate_html_from_results(results, ):
     # Открываем файл для записи
-    with open(output + "/Available_steps.html", "w", encoding="utf-8") as html_file:
+    with open(output + "/index.html", "w", encoding="utf-8") as html_file:
         # Начало HTML-документа
         html_file.write('<!DOCTYPE html>\n')
         html_file.write('<html lang="en">\n')
