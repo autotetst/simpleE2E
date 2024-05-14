@@ -40,7 +40,7 @@ def step_element_to_selector_with_time(context, selector, name, time):
     page.check_visibility(context.page.locator(selector=selector), name=name, timeout=float(time))
 
 
-@when('Жду исчезновения прелоадера "{selector}"')
+@then('Жду исчезновения прелоадера "{selector}"')
 def step_waiting_preloader_custom(context, selector):
     exist = True
     page = ClassCheck(context)

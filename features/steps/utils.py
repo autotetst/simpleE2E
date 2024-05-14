@@ -55,7 +55,7 @@ def step_screen(context):
     allure.attach(context.page.screenshot(path=f"{name}.png"), name=f"{name}.png", attachment_type=AttachmentType.PNG)
 
 
-@Then('Сравнить со скрином "{path_screen}"')
+@then('Сравнить со скрином "{path_screen}"')
 def step_assert_screen(context, path_screen):
     directory_expect = os.path.dirname(os.path.dirname(__file__)) + "/screens/"
 
