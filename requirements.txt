@@ -1,0 +1,5 @@
+allure_python_commons==2.9.45
+behave==1.2.6
+playwright==1.38.0
+Requests==2.31.0
+SimpleITK==2.3.1
