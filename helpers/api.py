@@ -1,4 +1,6 @@
 import requests
+import allure
+from helpers.prepare import func_allure_req
 
 
 class Api:
@@ -22,8 +24,10 @@ class Api:
         """
         if headers is None:
             headers = self._headers()
-        response = requests.post(url=self.host + path, headers=headers, **kwargs)
-        return response
+        with allure.step(f"POST {path}"):
+            response = requests.post(url=self.host + path, headers=headers, **kwargs)
+            func_allure_req(response)
+            return response
 
     def get(self, path, headers=None, **kwargs):
         """
@@ -34,8 +38,10 @@ class Api:
         """
         if headers is None:
             headers = self._headers()
-        response = requests.get(url=self.host + path, headers=headers, **kwargs)
-        return response
+        with allure.step(f"GET {path}"):
+            response = requests.get(url=self.host + path, headers=headers, **kwargs)
+            func_allure_req(response)
+            return response
 
     def put(self, path, headers=None, **kwargs):
         """
@@ -46,8 +52,10 @@ class Api:
         """
         if headers is None:
             headers = self._headers()
-        response = requests.put(url=self.host + path, headers=headers, **kwargs)
-        return response
+        with allure.step(f"PUT {path}"):
+            response = requests.put(url=self.host + path, headers=headers, **kwargs)
+            func_allure_req(response)
+            return response
 
     def delete(self, path, headers=None, **kwargs):
         """
@@ -58,5 +66,7 @@ class Api:
         """
         if headers is None:
             headers = self._headers()
-        response = requests.delete(url=self.host + path, headers=headers, **kwargs)
-        return response
+        with allure.step(f"DELETE {path}"):
+            response = requests.delete(url=self.host + path, headers=headers, **kwargs)
+            func_allure_req(response)
+            return response
