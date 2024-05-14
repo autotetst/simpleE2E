@@ -230,3 +230,11 @@ class ClassCheck:
         """
         with allure.step(f'Проверка скрытия элемента {name}'):
             expect(locator).to_be_hidden()
+
+    def check_current_url(self, url):
+        """
+        Метод проверки url
+        :param url: url для проверки
+        """
+        with allure.step(f'Проверка url {url}'):
+            expect(self.page).to_have_url(url)
