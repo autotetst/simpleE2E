@@ -1,7 +1,7 @@
 from typing import Union
 import allure
 from playwright.sync_api import Locator, expect
-
+import re
 
 class ClassCheck:
     def __init__(self, context):
@@ -128,7 +128,7 @@ class ClassCheck:
         :param kwargs: опции метода to_have_class()
         """
         with allure.step(f'Проверка наличия класса {class_name} у элемента {name}'):
-            expect(locator).to_have_class(class_name, **kwargs)
+            expect(locator).to_have_class(re.compile(class_name), **kwargs)
 
     def check_contain_text_multiple(self, locators: Union[list, tuple], name='', **kwargs):
         """
